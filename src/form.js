@@ -9,6 +9,7 @@ form.onsubmit = function(evt) {
   evt.preventDefault();
 
   const flashMsg = document.getElementById("flash-message");
+  const loadingEl = document.getElementById("loading");
   const submitBtn = document.getElementById("submit-btn");
   const queryParams = new URL(window.location.href).searchParams;
 
@@ -46,13 +47,15 @@ form.onsubmit = function(evt) {
   swal2.fire({
     title: '確認活動內容',
     html: swal2HtmlContent,
-    footer: '<div>送出後無法修改，場地方擁有場地調整的權力</div>',
+    footer: '<div>送出後無法修改且場地方最終審查權與取消場地的權力</div>',
     showCancelButton: true,
     confirmButtonText: '送出',
     cancelButtonText: '取消',
   })
   .then((result) => {
     if (result.value) {
+      loadingEl.style.display = 'flex';
+
       axios({
         url: `https://script.google.com/macros/s/${queryParams.get('gs-id')}/exec`,
         method: 'post',
@@ -62,21 +65,23 @@ form.onsubmit = function(evt) {
         },
       })
       .then((res) => {
+        loadingEl.style.display = 'none';
+
         activityNameEl.value = '';
         participantsEl.value = 10;
         rentNameEl.value = '';
         rentContactEl.value = '';
         activitySDT_El.value = '';
         activityEDT_El.value = '';
-        console.log('Success')
+        console.log('Success');
       })
       .catch((error) => {
-        console.log('Failure:: ', error)
+        console.log('Failure:: ', error);
       });
     }
   })
   .catch((err) => {
-    console.log('err:: ', err)
+    console.log('err:: ', err);
   });
 
   return false;

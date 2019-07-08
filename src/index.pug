@@ -9,6 +9,16 @@ html
     script(type="text/javascript", src="./index.js" defer)
     script(type="text/javascript", src="./form.js" defer)
   body.container-lg.clear-fix
+    #loading
+      .lds-roller
+        div
+        div
+        div
+        div
+        div
+        div
+        div
+        div
     #flash-message.flash.flash-warn(style='display: none;')
       | 檢查活動時間是否有填寫！
     form#form
