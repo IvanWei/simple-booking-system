@@ -1,0 +1,46 @@
+doctype html
+html
+  head
+    meta(name='viewport', content='width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1')
+    meta(name='robots', content='noindex')
+    link(rel="stylesheet", href="https://unpkg.com/primer/build/build.css")
+    link(rel="stylesheet", href="./index.css")
+    link(rel="stylesheet", href="../node_modules/flatpickr/dist/flatpickr.min.css")
+    script(type="text/javascript", src="./index.js" defer)
+    script(type="text/javascript", src="./form.js" defer)
+  body.container-lg.clear-fix
+    #flash-message.flash.flash-warn(style='display: none;')
+      | 檢查活動時間是否有填寫！
+    form#form
+      dl.form-group.col-lg-6.col-sm-12.float-left
+        dt
+          label(for='activity-name') 會議 / 活動名稱
+        dd
+          input#activity-name.form-control(type='text', required='')
+      dl.form-group.col-lg-6.col-sm-12.float-left
+        dt
+          label(for='participants') 參與人數
+        dd
+          input#participants.form-control(type='number', value='10', min='10', max='40', required='')
+      dl.form-group.col-lg-6.col-sm-12.float-left
+        dt
+          label(for='rent-name') 申請人名字
+        dd
+          input#rent-name.form-control(type='text', placeholder='ex. Ivan', required='')
+      dl.form-group.col-lg-6.col-sm-12.float-left
+        dt
+          label(for='rent-contact') 聯絡方式
+        dd
+          input#rent-contact.form-control(type='text', placeholder='ex. 02-XXXX-XXXX / XXXX@ooo.com', required='')
+      dl.form-group.col-lg-6.col-sm-12
+        dt
+          label(for='activity-start-datetime') 開始時間
+        dd
+          input#activity-start-datetime.form-control.activity-time(type='text', placeholder='開始時間', required='')
+      dl.form-group.col-lg-6.col-sm-12
+        dt
+          label(for='activity-end-datetime') 結束時間
+        dd
+          input#activity-end-datetime.form-control.activity-time(type='text', placeholder='結束時間', required='')
+      .form-actions
+        button#submit-btn.btn.btn-primary(type='submit') 送出
