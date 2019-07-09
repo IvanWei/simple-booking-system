@@ -21,6 +21,7 @@ html
         div
     #flash-message.flash.flash-warn(style='display: none;')
       | 檢查活動時間是否有填寫！
+
     form#form
       dl.form-group.col-lg-6.col-sm-12.float-left
         dt
@@ -32,16 +33,21 @@ html
           label(for='participants') 參與人數
         dd
           input#participants.form-control(type='number', value='10', min='10', max='40', required='')
-      dl.form-group.col-lg-6.col-sm-12.float-left
+      dl.form-group.col-lg-6.col-sm-12
         dt
           label(for='rent-name') 申請人名字
         dd
           input#rent-name.form-control(type='text', placeholder='ex. Ivan', required='')
       dl.form-group.col-lg-6.col-sm-12.float-left
         dt
-          label(for='rent-contact') 聯絡方式
+          label(for='rent-tel') 聯絡電話
         dd
-          input#rent-contact.form-control(type='text', placeholder='ex. 02-XXXX-XXXX / XXXX@ooo.com', required='')
+          input#rent-tel.form-control(type='tel', placeholder='ex. 02-XXXX-XXXX', required='')
+      dl.form-group.col-lg-6.col-sm-12.float-left
+        dt
+          label(for='rent-contact') 聯絡信箱
+        dd
+          input#rent-contact.form-control(type='email', placeholder='ex. XXXX@ooo.com', required='')
       dl.form-group.col-lg-6.col-sm-12
         dt
           label(for='activity-start-datetime') 開始時間

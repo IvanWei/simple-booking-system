@@ -17,6 +17,7 @@ form.onsubmit = function(evt) {
   const participantsEl = document.getElementById('participants');
   const rentNameEl = document.getElementById('rent-name');
   const rentContactEl = document.getElementById('rent-contact');
+  const rentTelEl = document.getElementById('rent-tel');
 
   flashMsg.style.display = "none";
 
@@ -32,6 +33,7 @@ form.onsubmit = function(evt) {
     participants: participantsEl.value,
     rentName: rentNameEl.value,
     rentContact: rentContactEl.value,
+    rentTel: rentTelEl.value,
     activitySDT: activitySDT_El.value,
     activityEDT: activityEDT_El.value,
     isInternal: (isInternal === ""  || isInternal === "true"),
@@ -40,7 +42,7 @@ form.onsubmit = function(evt) {
   let swal2HtmlContent = `<div>活動名稱：${params.activityName}</div>`;
   swal2HtmlContent += `<div>活動人數：${params.participants}</div>`;
   swal2HtmlContent += `<div>申請人：${params.rentName}</div>`;
-  swal2HtmlContent += `<div>聯絡方式：${params.rentContact}</div>`;
+  swal2HtmlContent += `<div>聯絡方式：${params.rentContact} / ${params.rentTel}</div>`;
   swal2HtmlContent += `<div>租借開始時間：${params.activitySDT}</div>`;
   swal2HtmlContent += `<div>租借結束時間：${params.activityEDT}</div>`;
 
@@ -71,6 +73,7 @@ form.onsubmit = function(evt) {
         participantsEl.value = 10;
         rentNameEl.value = '';
         rentContactEl.value = '';
+        rentTelEl.value = '';
         activitySDT_El.value = '';
         activityEDT_El.value = '';
         console.log('Success');
