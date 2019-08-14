@@ -38,10 +38,16 @@ form.onsubmit = function(evt) {
     rentTel: rentTelEl.value,
     activitySDT: activitySDT_El.value,
     activityEDT: activityEDT_El.value,
-    isInternal: (isInternal === ""  || isInternal === "true"),
+    isInternal: (isInternal === "" || isInternal === "true"),
   };
 
   let swal2HtmlContent = `<div>活動名稱：${params.activityName}</div>`;
+  swal2HtmlContent += `<div>外部借用： ${params.isInternal?'No':'Yes'}</div>`;
+
+  if (!params.isInternal) {
+    swal2HtmlContent += `<div>隨班人員：${params.staff}</div>`;
+  }
+
   swal2HtmlContent += `<div>活動人數：${params.participants}</div>`;
   swal2HtmlContent += `<div>申請人：${params.rentName}</div>`;
   swal2HtmlContent += `<div>聯絡方式：${params.rentContact} / ${params.rentTel}</div>`;
