@@ -16,6 +16,7 @@ form.onsubmit = function(evt) {
   const activityNameEl = document.getElementById('activity-name');
   const participantsEl = document.getElementById('participants');
   const rentNameEl = document.getElementById('rent-name');
+  const staffEl = document.getElementById('staff');
   const rentContactEl = document.getElementById('rent-contact');
   const rentTelEl = document.getElementById('rent-tel');
 
@@ -32,6 +33,7 @@ form.onsubmit = function(evt) {
     activityName: activityNameEl.value,
     participants: participantsEl.value,
     rentName: rentNameEl.value,
+    staff: (staffEl && staffEl.value || ''),
     rentContact: rentContactEl.value,
     rentTel: rentTelEl.value,
     activitySDT: activitySDT_El.value,
@@ -76,6 +78,10 @@ form.onsubmit = function(evt) {
         rentTelEl.value = '';
         activitySDT_El.value = '';
         activityEDT_El.value = '';
+
+        if (staffEl) {
+          staffEl.value = '';
+        }
         console.log('Success');
       })
       .catch((error) => {

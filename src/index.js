@@ -27,4 +27,12 @@ window.onload = function () {
   const isInternal = queryParams.get('internal');
 
   document.getElementById("submit-btn").innerHTML = ((isInternal === ""  || isInternal === "true")?"送出 (內部)":"送出");
+
+  if (isInternal === ""  || isInternal === "true") {
+    const staffEl = document.getElementById("staff").parentNode.parentNode;
+    staffEl.parentNode.removeChild(staffEl);
+
+    const rentNameEl = document.getElementById("rent-name").parentNode.parentNode;
+    rentNameEl.classList.remove("float-left");
+  }
 }
