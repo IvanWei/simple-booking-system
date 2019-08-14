@@ -14,10 +14,6 @@ let activitySDT_fp = flatpickr("#activity-start-datetime", {
   dateFormat: "Y/m/d H:i",
   time_24hr: true,
   minDate: today,
-  onChange: function(dateObj, dateStr) {
-    console.info(dateObj);
-    console.info(dateStr);
-  },
   onClose: function(selectedDates, dateStr, instance) {
     const maxDate = dateStr.split(' ')[0] + (dateStr.length > 0?' 23:59:59':dateStr);
 
